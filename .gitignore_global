@@ -1,0 +1,9 @@
+.projectile
+.idea/
+*.iml
+.ruby-version
+.dir-locals.el
+.DS_store
+*~
+.Vagrantfile
+.pryrc

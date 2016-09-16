@@ -1,0 +1,27 @@
+[user]
+	name = Hiroshi Ogawa
+	email = hi.ogawa.zz@gmail.com
+
+[alias]
+  st = status
+  co = checkout
+  br = branch
+  fa = fetch --all
+
+  # push current branch
+  pc = "!f() { git push origin $(git rev-parse --abbrev-ref HEAD) $1; }; f"
+
+  # safe pull
+  sfpl = "!f() { git fetch origin $1 && git checkout $1 && git merge --ff-only origin/$1; }; f"
+
+  # checkout remote
+  cormt = "!f() { git fetch origin $1 && git checkout -b $1 remotes/origin/$1; }; f"
+
+  # branch garbage collection
+  brgc = "!git branch --merged | egrep -v '^\\*|master' | xargs git branch -d"
+
+[core]
+	excludesfile = ~/.gitignore_global
+
+[github]
+	user = hi-ogawa

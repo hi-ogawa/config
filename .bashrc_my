@@ -1,0 +1,16 @@
+# customized prompt
+export PS1='$ '
+
+# default editor
+export EDITOR=emacsclient
+
+# quick docker run (example: dr haskell ghci)
+function dr() {
+  docker run -v $PWD:/app -it --rm $1 ${2:bash}
+}
+
+# rbenv: https://github.com/rbenv/rbenv
+if [ -d ~/.rbenv/bin ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
