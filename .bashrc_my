@@ -6,7 +6,9 @@ export EDITOR=emacsclient
 
 # quick docker run (example: dr haskell ghci)
 function dr() {
-  docker run -v $PWD:/app -it --rm $1 ${2:bash}
+  if type docker > /dev/null; then
+    docker run -v $PWD:/app -it --rm $1 ${2:bash}
+  fi
 }
 
 # rbenv: https://github.com/rbenv/rbenv
