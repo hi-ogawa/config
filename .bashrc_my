@@ -14,3 +14,14 @@ if [ -d ~/.rbenv/bin ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+# cscope index setup
+function cscope_init() {
+  if type cscope > /dev/null; then
+    rm -f cscope.files
+    for ext in c cc cpp h s S; do
+      find . -name "*.$ext" -print >> cscope.files
+    done
+    cscope -b -q -k
+  fi
+}
