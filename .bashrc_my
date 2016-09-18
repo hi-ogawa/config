@@ -16,7 +16,7 @@ function docker_gc() {
   docker ps -aq -f status=exited | xargs -r docker rm
 
   echo "remove volumes ..."
-  docker volume ls -q -f dangling=true | xargs -r docker volume rm
+  docker volume ls -q -f dangling=true | grep ".\{64\}" | xargs -r docker volume rm
 
   echo "remove images ..."
   docker images -aq -f dangling=true | xargs -r docker rmi
