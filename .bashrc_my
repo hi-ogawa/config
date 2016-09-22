@@ -38,3 +38,17 @@ function cscope_init() {
     cscope -b -q -k
   fi
 }
+
+# Rescue from system glitches
+function rescue_network() {
+  if lsmod | awk '$1 ~ /e1000e/' | read; then
+    sudo modprobe -r e1000e
+    sudo modprobe e1000e
+  else
+    echo 'kernel module e1000e not found'
+  fi
+}
+
+function rescue_display() {
+  xrandr -s 1366x768
+}
