@@ -47,8 +47,36 @@ function rescue_network() {
   else
     echo 'kernel module e1000e not found'
   fi
+
+  if lsmod | awk '$1 ~ /iwlwifi/' | read; then
+    sudo modprobe -r iwlwifi
+    sudo modprobe iwlwifi
+  else
+    echo 'kernel module e1000e not found'
+  fi
 }
 
 function rescue_display() {
   xrandr -s 1366x768
+}
+
+function set_depot_tools_path() {
+  export PATH=$HOME/repositories/others/depot_tools:$PATH
+}
+
+function set_android_studio_path() {
+  export PATH=$HOME/repositories/downloads/path/android-studio/bin:$PATH
+}
+
+function caps_as_ctrl() {
+  sudo loadkeys ~/repositories/my/keymap/caps_as_ctrl.map
+}
+
+function set_path_gradle() {
+  export GRADLE_HOME=$HOME/repositories/downloads/gradle-3.2.1
+  export PATH=$GRADLE_HOME/bin:$PATH
+}
+
+function set_java() {
+  export JAVA_HOME=/usr/lib/jvm/default-java
 }
