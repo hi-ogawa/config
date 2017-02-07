@@ -28,6 +28,12 @@ if [ -d ~/.rbenv/bin ]; then
   eval "$(rbenv init -)"
 fi
 
+# nvm: https://github.com/creationix/nvm
+if [ -d ~/.nvm ]; then
+  export NVM_DIR="~/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+fi
+
 # cscope index setup
 function cscope_init() {
   if type cscope > /dev/null; then
