@@ -83,6 +83,10 @@ function set_path_gradle() {
   export PATH=$GRADLE_HOME/bin:$PATH
 }
 
-function set_java() {
+function set_java_home() {
   export JAVA_HOME=/usr/lib/jvm/default-java
+}
+
+function set_bazel_path() {
+  export PATH=$HOME/repositories/downloads/bazel-0.4.4/bin:$PATH
 }
