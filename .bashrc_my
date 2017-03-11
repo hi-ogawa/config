@@ -100,10 +100,13 @@ function set_bazel_path() {
   export PATH=$HOME/repositories/downloads/bazel-0.4.4/bin:$PATH
 }
 
-# usage:
+# Usage:
+# - for single video
 # $ youtube_dl https://www.youtube.com/watch?v=ferZnZ0_rSM
+# - for playlist
+# $ youtube_dl https://www.youtube.com/playlist?list=PL334A457011BC5467 some-playlist-name
 function youtube_dl() {
   cd ~/repositories/others/youtube-dl
-  python -m youtube_dl -o '~/Music/youtube/%(title)s.%(ext)s' --extract-audio $1
+  python -m youtube_dl -o "~/Music/youtube/$2/%(title)s.%(ext)s" --extract-audio $1
   cd -
 }
