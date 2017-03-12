@@ -79,6 +79,7 @@ function set_android_path() {
   export ANDROID_SDK=$HOME/Android/Sdk
   export ANDROID_NDK=$HOME/Android/Sdk/ndk-bundle
   export PATH=$ANDROID_SDK/platform-tools:$PATH
+  export PATH=$ANDROID_SDK/tools:$PATH
   export PATH=$ANDROID_SDK/tools/bin:$PATH
   export PATH=$ANDROID_SDK/emulator:$PATH
 }
