@@ -111,3 +111,8 @@ function youtube_dl() {
   python -m youtube_dl -o "~/Music/youtube/$2/%(title)s.%(ext)s" --extract-audio $1
   cd -
 }
+
+# emacsclient shorter form
+function ec() {
+  emacsclient --no-wait --create-frame $1
+}
