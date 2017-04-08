@@ -112,15 +112,24 @@ function youtube_dl() {
   cd -
 }
 
-# shortened emacsclient
+# Shortened emacsclient
+# Usage:
+# $ ec <path>
+# $ ec <path> tty
 function ec() {
   if { pgrep emacs >/dev/null; [ $? -ne 0 ]; };
   then emacs --daemon;
   fi
-  emacsclient --no-wait --create-frame $1
+
+  case $2 in
+    tty ) emacsclient -nw $1 ;;
+    *   ) emacsclient --no-wait --create-frame $1 ;;
+  esac
 }
 
-# shortened tmux new-window
+# Shortened tmux new-window
+# Usage:
+# $ tn htop
 function tn() {
   tmux new-window $1
 }
