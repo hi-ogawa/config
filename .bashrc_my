@@ -112,7 +112,15 @@ function youtube_dl() {
   cd -
 }
 
-# emacsclient shorter form
+# shortened emacsclient
 function ec() {
+  if { pgrep emacs >/dev/null; [ $? -ne 0 ]; };
+  then emacs --daemon;
+  fi
   emacsclient --no-wait --create-frame $1
+}
+
+# shortened tmux new-window
+function tn() {
+  tmux new-window $1
 }
