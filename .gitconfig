@@ -27,3 +27,12 @@
 	user = hi-ogawa
 [color]
 	ui = auto
+
+# https://community.kde.org/Guidelines_and_HOWTOs/Build_from_source#Git_remote_prefix
+[url "git://anongit.kde.org/"]
+   insteadOf = kde:
+
+[url "ssh://git@git.kde.org/"]
+   pushInsteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
