@@ -34,17 +34,6 @@ if [ -d ~/.nvm ]; then
   [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 fi
 
-# cscope index setup
-function cscope_init() {
-  if type cscope > /dev/null; then
-    rm -f cscope.files
-    for ext in c cc cpp h s S; do
-      find . -name "*.$ext" -print >> cscope.files
-    done
-    cscope -b -q -k
-  fi
-}
-
 # Rescue from system glitches
 function rescue_network() {
   if lsmod | awk '$1 ~ /e1000e/' | read; then
@@ -70,10 +59,6 @@ function set_depot_tools_path() {
   export PATH=$HOME/repositories/others/depot_tools:$PATH
 }
 
-function set_android_studio_path() {
-  export PATH=$HOME/repositories/downloads/path/android-studio/bin:$PATH
-}
-
 function set_android_path() {
   export ANDROID_HOME=$HOME/Android/Sdk
   export ANDROID_SDK=$HOME/Android/Sdk
@@ -88,11 +73,6 @@ function caps_as_ctrl() {
   sudo loadkeys ~/repositories/my/keymap/caps_as_ctrl.map
 }
 
-function set_path_gradle() {
-  export GRADLE_HOME=$HOME/repositories/downloads/gradle-3.2.1
-  export PATH=$GRADLE_HOME/bin:$PATH
-}
-
 function set_java_home() {
   export JAVA_HOME=/usr/lib/jvm/default-java
 }
@@ -102,7 +82,7 @@ function set_bazel_path() {
 }
 
 # Usage:
-# - for single video
+# - for single music
 # $ youtube_dl https://www.youtube.com/watch?v=ferZnZ0_rSM
 # - for playlist
 # $ youtube_dl https://www.youtube.com/playlist?list=PL334A457011BC5467 some-playlist-name
@@ -132,4 +112,32 @@ function ec() {
 # $ tn htop
 function tn() {
   tmux new-window $1
+}
+
+# Usage:
+# $ set_gopath [version]
+function set_gopath() {
+  # For building go from source (this is from apt package golang-1.6-go)
+  export GOROOT_BOOTSTRAP=/usr/lib/go-1.6
+
+  export GOARCH=amd64
+  export GOOS=linux
+
+  case $1 in
+    'dev' )
+        export GOROOT=/home/hiogawa/repositories/others/go
+        export GOPATH=$HOME/gopath-dev
+        ;;
+    '1.6' )
+        export GOROOT=/usr/lib/go-1.6
+        export GOPATH=$HOME/gopath-1.6
+        ;;
+    * )
+        export GOROOT=/usr/lib/go-1.6
+        export GOPATH=$HOME/gopath-1.6
+        ;;
+  esac
+
+  mkdir -p $GOPATH
+  export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 }

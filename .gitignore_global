@@ -8,3 +8,5 @@
 .Vagrantfile
 .pryrc
 .vscode
+_install
+out-hiogawa/
