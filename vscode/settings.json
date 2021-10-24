@@ -46,7 +46,7 @@
   "window.menuBarVisibility": "default",
   "window.zoomLevel": -1,
   "workbench.activityBar.visible": true,
-  "workbench.colorTheme": "Solarized Light",
+  "workbench.colorTheme": "Solarized Dark",
   "workbench.editor.enablePreview": false,
   "workbench.editor.showTabs": true,
   "workbench.startupEditor": "none"
