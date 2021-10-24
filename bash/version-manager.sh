@@ -4,7 +4,7 @@
 ho_setup_pyenv() {
   export PYENV_ROOT="$HOME/.pyenv"
   export PATH="${PYENV_ROOT}/bin:$PATH"
-  eval "$(pyenv init -)"
+  eval "$(pyenv init --path)"
 }
 
 # https://docs.python.org/3/library/venv.html
