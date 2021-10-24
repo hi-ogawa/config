@@ -11,23 +11,28 @@
   lga = log --graph --oneline --all
 
   # Push
-  pc = "! git push origin $(git rev-parse --abbrev-ref HEAD)"
-  pcf = "! git push -f origin $(git rev-parse --abbrev-ref HEAD)"
+  pc = "! git push origin $(git rev-parse --abbrev-ref HEAD) && true"
+  pcf = "! git push -f origin $(git rev-parse --abbrev-ref HEAD) && true"
 
   # Fetch and merge fast-forward (thus "safe" pull)
-  # $ git sfpl upstream
-  sfpl = "! remote=${1:-origin} && branch=$(git rev-parse --abbrev-ref HEAD) && git fetch $remote $branch && git merge --ff-only $remote/$branch"
-
-  # Checkout remote
-  # $ git cormt upstream feature-xyz
-  cormt = "! git fetch $1 $2 && git co -b $2 remotes/$1/$2"
+  # $ git sfpl <remote=origin>
+  sfpl = "! remote=${1:-origin} && branch=$(git rev-parse --abbrev-ref HEAD) && git fetch $remote $branch && git merge --ff-only $remote/$branch && true"
 
   # Delete merged branch
-  # $ git brgc main
-  brgc = "! git branch --merged | grep -E -v \"^\\*|${1:-master}\" | xargs git branch -d"
+  # $ git brgc <branch=master>
+  brgc = "! git branch --merged | grep -E -v \"^\\*|${1:-master}\" | xargs git branch -d && true"
+
+  # Checkout github remote PR
+  # $ git ghpr-co <PR-id> <remote=upstream>
+  # $ git ghpr-reset <PR-id> <remote=upstream> <branch=master>
+  ghpr-co =    "! name=PR-$1 && remote=${2:-upstream} && git fetch $remote pull/$1/head:PR-$1 && git co PR-$1 && true"
+  ghpr-reset = "! name=PR-$1 && remote=${2:-upstream} && branch=${3:-master} && git co $branch && (git br -D $name || true) && git ghpr-co $1 $2 && true"
 
 [github]
   user = hi-ogawa
 
 [color]
   ui = auto
+
+[commit]
+	gpgsign = true
