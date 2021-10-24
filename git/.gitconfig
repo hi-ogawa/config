@@ -9,8 +9,10 @@
   br = branch
   lg = log --graph --oneline
   lga = log --graph --oneline --all
-  pc = push
-  pcf = push -f
+
+  # Push
+  pc = "! git push origin $(git rev-parse --abbrev-ref HEAD)"
+  pcf = "! git push -f origin $(git rev-parse --abbrev-ref HEAD)"
 
   # Fetch and merge fast-forward (thus "safe" pull)
   # $ git sfpl upstream
