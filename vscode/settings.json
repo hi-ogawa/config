@@ -1,0 +1,61 @@
+{
+  "workbench.editor.enablePreview": false,
+  "window.menuBarVisibility": "default",
+  "workbench.activityBar.visible": true,
+  "terminal.integrated.shell.windows": "C:\\Windows\\System32\\cmd.exe",
+  "files.associations": {
+    "*.cu": "cpp",
+    "*.cuh": "cpp",
+    "*.ush": "hlsl",
+    "*.usf": "hlsl",
+    "*.pyx": "python",
+    "BUILD": "python",
+    "WORKSPACE": "python",
+    "*.bzl": "python",
+    "Makefrag*": "makefile",
+    "Makefile*": "makefile"
+  },
+  "git.autofetch": false,
+  // "git.path": "C:\\cygwin64\\bin\\git.exe",
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "extensions.ignoreRecommendations": true,
+  "python.linting.enabled": false,
+  "python.terminal.activateEnvironment": false,
+  "update.mode": "none",
+  "extensions.autoUpdate": false,
+  "explorer.confirmDragAndDrop": false,
+  "telemetry.enableTelemetry": false,
+  "telemetry.enableCrashReporter": false,
+  "editor.quickSuggestions": {
+    "other": false,
+    "comments": false,
+    "strings": false
+  },
+  "javascript.updateImportsOnFileMove.enabled": "never",
+  "editor.tabSize": 2,
+  "[python]": {
+    "editor.tabSize": 4
+  },
+  "explorer.autoReveal": true,
+  "workbench.startupEditor": "none",
+  "workbench.editor.showTabs": true,
+  "files.exclude": {
+    "**/.git": true
+  },
+  "python.insidersChannel": "off",
+  "mesonbuild.configureOnOpen": false,
+  "editor.renderWhitespace": "boundary",
+  "editor.fontFamily": "'Roboto Mono', monospace",
+  "diffEditor.ignoreTrimWhitespace": false,
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "workbench.colorTheme": "Solarized Light",
+  "security.workspace.trust.enabled": false,
+  "window.zoomLevel": -1
+}

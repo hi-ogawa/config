@@ -1,0 +1,31 @@
+[user]
+  name = Hiroshi Ogawa
+  email = hi.ogawa.zz@gmail.com
+
+[alias]
+  st = status
+  ci = commit
+  co = checkout
+  br = branch
+  lg = log --graph --oneline
+  lga = log --graph --oneline --all
+  pc = push
+  pcf = push -f
+
+  # Fetch and merge fast-forward (thus "safe" pull)
+  # $ git sfpl upstream
+  sfpl = "! remote=${1:-origin} && branch=$(git rev-parse --abbrev-ref HEAD) && git fetch $remote $branch && git merge --ff-only $remote/$branch"
+
+  # Checkout remote
+  # $ git cormt upstream feature-xyz
+  cormt = "! git fetch $1 $2 && git co -b $2 remotes/$1/$2"
+
+  # Delete merged branch
+  # $ git brgc main
+  brgc = "! git branch --merged | grep -E -v \"^\\*|${1:-master}\" | xargs git branch -d"
+
+[github]
+  user = hi-ogawa
+
+[color]
+  ui = auto
