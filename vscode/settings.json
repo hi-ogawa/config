@@ -35,6 +35,7 @@
     "**/.metals": true
   },
   "git.autofetch": false,
+  "gitlens.currentLine.enabled": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "python.experiments.optInto": ["pythonDiscoveryModuleWithoutWatcher"],
   "python.insidersChannel": "off",
@@ -42,6 +43,7 @@
   "python.terminal.activateEnvironment": false,
   "security.workspace.trust.enabled": false,
   "telemetry.enableTelemetry": false,
+  "typescript.inlayHints.parameterNames.enabled": "none",
   "update.mode": "none",
   "window.zoomLevel": -1,
   "workbench.activityBar.visible": true,
