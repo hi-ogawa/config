@@ -37,6 +37,7 @@
   "git.autofetch": false,
   "javascript.updateImportsOnFileMove.enabled": "never",
   "mesonbuild.configureOnOpen": false,
+  "python.experiments.optInto": ["pythonDiscoveryModuleWithoutWatcher"],
   "python.insidersChannel": "off",
   "python.linting.enabled": false,
   "python.terminal.activateEnvironment": false,
