@@ -13,17 +13,17 @@ ho_setup_venv() {
 
   if test ! -d "$venv_dir"; then
     echo -n ":: Virtualenv (${venv_dir}) doesn't exist. Proceed to create it? [y/n] "
-    read -enr 1
+    read -e -r -n 1
     case "$REPLY" in
-    y | '')
-      echo ":: Creating virtualenv at ${venv_dir} ..."
-      ;;
+    '') echo "" ;;
+    y) ;;
     *)
       echo ":: Canceled"
       return 1
       ;;
     esac
 
+    echo ":: Creating virtualenv at ${venv_dir} ..."
     if ! python -m venv --upgrade-deps "$venv_dir"; then
       echo ":: Creating virtualenv failed"
       return 1
