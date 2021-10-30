@@ -17,6 +17,7 @@ for arg in "${@}"; do
 
   git)
     ln -sf "${PWD}/git/.gitconfig" "${HOME}/.gitconfig"
+    ln -sf "${PWD}/git/.gitignore-global" "${HOME}/.gitignore-global"
     ;;
 
   vscode)
