@@ -24,7 +24,7 @@ ho_setup_venv() {
     esac
 
     echo ":: Creating virtualenv at ${venv_dir} ..."
-    if ! python -m venv --upgrade-deps "$venv_dir"; then
+    if ! python -m venv "$venv_dir"; then
       echo ":: Creating virtualenv failed"
       return 1
     fi
