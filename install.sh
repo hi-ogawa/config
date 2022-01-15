@@ -26,11 +26,11 @@ for arg in "${@}"; do
     ;;
 
   tmux)
-    ln -sf "$PWD/.tmux.conf" "${HOME}/.tmux.conf"
+    ln -sf "$PWD/tmux/.tmux.conf" "${HOME}/.tmux.conf"
     ;;
 
   mpd)
-    ln -sf "$PWD/mpd.conf" "${HOME}/.config/mpd"
+    ln -sf "$PWD/mpd/mpd.conf" "${HOME}/.config/mpd"
     ;;
 
   *)
