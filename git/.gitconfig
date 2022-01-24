@@ -38,4 +38,9 @@
   ui = auto
 
 [commit]
-	gpgsign = true
+  gpgsign = true
+
+[diff]
+  tool = vscode
+[difftool "vscode"]
+  cmd = code-insiders --wait --diff $LOCAL $REMOTE
