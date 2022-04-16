@@ -36,3 +36,8 @@ ho_ytdl_audio() {
     youtube-dl "${options[@]}" "$url"
   done
 }
+
+ho_npm_completion() {
+  # shellcheck disable=SC1090
+  source <(npm completion)
+}
