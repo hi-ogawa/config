@@ -9,6 +9,7 @@
   br = branch
   lg = log --graph --oneline
   lga = log --graph --oneline --all
+  diff-no-lock = diff -- ':!*pnpm-lock.yaml' ':!*yarn.lock' ':!package-lock.json'
 
   # Push
   pc = "! git push origin $(git rev-parse --abbrev-ref HEAD) && true"
@@ -27,6 +28,7 @@
   # $ git ghpr-reset <PR-id> <remote=upstream> <branch=master>
   ghpr-co =    "! name=PR-$1 && remote=${2:-upstream} && git fetch $remote pull/$1/head:PR-$1 && git co PR-$1 && true"
   ghpr-reset = "! name=PR-$1 && remote=${2:-upstream} && branch=${3:-master} && git co $branch && (git br -D $name || true) && git ghpr-co $1 $2 && true"
+
 
 [core]
   excludesfile = ~/.gitignore-global
