@@ -18,6 +18,10 @@
   # $ git sfpl <remote=origin>
   sfpl = "! remote=${1:-origin} && branch=$(git rev-parse --abbrev-ref HEAD) && git fetch $remote $branch && git merge --ff-only $remote/$branch && true"
 
+  # Fetch remote and checkout
+  # $ git fco <branch> <remote=origin>
+  fco = "! branch=${1} remote=${2:-origin} && git fetch $remote $branch && git co $branch && true"
+
   # Delete merged branch
   # $ git brgc <branch=master>
   brgc = "! git branch --merged | grep -E -v \"^\\*|${1:-master}\" | xargs git branch -d && true"
