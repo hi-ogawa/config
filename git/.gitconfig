@@ -23,6 +23,10 @@
   # $ git fco <branch> <remote=origin>
   fco = "! branch=${1} remote=${2:-origin} && git fetch $remote $branch && git co $branch && true"
 
+  # Add remote repo
+  # $ git remote-gh hi-ogawa Stockfish
+  remote-gh = "! remote=${1} repo=${2} && git remote add $remote git@github.com:$remote/$repo.git && true"
+
   # Delete merged branch
   # $ git brgc <branch=master>
   brgc = "! git branch --merged | grep -E -v \"^\\*|${1:-master}\" | xargs git branch -d && true"
