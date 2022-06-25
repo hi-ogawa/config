@@ -12,8 +12,13 @@ ho_custom_rescue_hid() {
   sudo modprobe hid_multitouch
 }
 
+ho_custom_gpg_tty() {
+  export GPG_TTY=$(tty)
+}
+
 ho_custom_default() {
   ho_setup_volta
+  ho_custom_gpg_tty
   # ho_setup_pyenv
   # ho_npm_completion
 }
