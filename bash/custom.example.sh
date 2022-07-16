@@ -17,6 +17,15 @@ ho_custom_gpg_tty() {
   export GPG_TTY
 }
 
+# https://wiki.archlinux.org/title/python#Python_2
+ho_python2() {
+  python2_bin="$XDG_RUNTIME_DIR/python2_bin"
+  mkdir -p "$python2_bin"
+  ln -sf /usr/bin/python2 "$python2_bin/python"
+  ln -sf /usr/bin/python2-config "$python2_bin/python-config"
+  export PATH="$python2_bin:$PATH"
+}
+
 ho_custom_default() {
   ho_setup_volta
   ho_custom_gpg_tty
