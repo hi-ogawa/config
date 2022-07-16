@@ -13,7 +13,8 @@ ho_custom_rescue_hid() {
 }
 
 ho_custom_gpg_tty() {
-  export GPG_TTY=$(tty)
+  GPG_TTY=$(tty)
+  export GPG_TTY
 }
 
 ho_custom_default() {
