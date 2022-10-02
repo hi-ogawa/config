@@ -12,7 +12,7 @@
 
   # exclude lock files from git diff
   # $ git diff -- $(git no-lock)
-  no-lock = "! echo ':!*pnpm-lock.yaml' ':!*yarn.lock' ':!*package-lock.json'"
+  no-lock = "! echo ':!*pnpm-lock.yaml' ':!*yarn.lock' ':!*package-lock.json' ':!*Cargo.lock'"
 
   # Push
   pc = "! git push origin $(git rev-parse --abbrev-ref HEAD) && true"
