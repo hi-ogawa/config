@@ -14,6 +14,10 @@
   # $ git diff -- $(git no-lock)
   no-lock = "! echo ':!*pnpm-lock.yaml' ':!*yarn.lock' ':!*package-lock.json' ':!*Cargo.lock'"
 
+  # list names of modifed or new files
+  #  $ prettier -w $(COMMIT=master git diff-ls)
+  diff-ls = "! git diff --name-only ${COMMIT:-HEAD} && git ls-files --others --exclude-standard"
+
   # Push
   pc = "! git push origin $(git rev-parse --abbrev-ref HEAD) && true"
   pcf = "! git push -f origin $(git rev-parse --abbrev-ref HEAD) && true"
