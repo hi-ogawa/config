@@ -44,6 +44,8 @@
   ghpr-co =    "! name=PR-$1 && remote=${2:-upstream} && git fetch $remote pull/$1/head:PR-$1 && git co PR-$1 && true"
   ghpr-reset = "! name=PR-$1 && remote=${2:-upstream} && branch=${3:-master} && git co $branch && (git br -D $name || true) && git ghpr-co $1 $2 && true"
 
+[init]
+  defaultBranch = main
 
 [core]
   excludesfile = ~/.gitignore-global
