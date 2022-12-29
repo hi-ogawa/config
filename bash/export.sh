@@ -2,6 +2,7 @@
 
 export EDITOR="nano"
 export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # https://man.archlinux.org/man/bash.1.en#PROMPTING
 ho_prompt_command() {
