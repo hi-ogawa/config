@@ -28,7 +28,7 @@
 
   # Fetch remote and checkout
   # $ git fco <branch> <remote=origin>
-  fco = "! branch=${1} remote=${2:-origin} && git fetch $remote $branch && git co $branch && true"
+  fco = "! branch=${1} remote=${2:-origin} && git fetch $remote $branch && git co -b $branch $remote/$branch && true"
 
   # delete local branch before "git fco"
   # $ git dfco <branch> <remote=origin>
