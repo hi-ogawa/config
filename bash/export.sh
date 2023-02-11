@@ -8,7 +8,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 ho_prompt_command() {
   local status="$?"
   local status_message=""
-  if [ "$status" != "0" ]; then
+  if [[ "$status" != "0" ]]; then
     status_message="($status) "
   fi
   local color_cwd="\[\033[0;32m\]"    # green
