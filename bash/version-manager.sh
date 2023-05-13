@@ -45,3 +45,10 @@ ho_setup_volta() {
   export VOLTA_HOME="$HOME/.volta"
   export PATH="$VOLTA_HOME/bin:$PATH"
 }
+
+# https://asdf-vm.com/guide/getting-started.html#_3-install-asdf
+ho_setup_asdf() {
+  if [[ -f /opt/asdf-vm/asdf.sh ]]; then
+    . /opt/asdf-vm/asdf.sh
+  fi
+}

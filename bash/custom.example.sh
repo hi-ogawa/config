@@ -11,6 +11,7 @@ ho_android() {
 }
 
 ho_custom_default() {
+  ho_setup_asdf
   ho_setup_volta
   ho_android
   # ho_setup_pyenv
