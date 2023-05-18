@@ -11,7 +11,8 @@
   lga = log --graph --oneline --all
 
   # checkout stack log
-  co-lg = "! for ((i=1; i<10; i++)); do echo -n \"$i: \"; git rev-parse --symbolic-full-name @{-$i}; done"
+  co-lg = "! for ((i=1; i<10; i++)); do echo -n \"$i: \"; git rev-parse --symbolic-full-name @{-$i} 2>/dev/null; done"
+  co-co = "! git checkout @{-${1}} && true"
 
   # exclude lock files from git diff
   # $ git diff -- $(git no-lock)
