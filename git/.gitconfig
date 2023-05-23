@@ -19,7 +19,7 @@
   # (diff lines trick from https://unix.stackexchange.com/a/28159)
   # $ git br-diff-remote
   # $ git br -D $(git br-diff-remote)  # cleanup local branches first
-  # $ git br -rd $(git br-diff-remote | awk '{ print "origin/" $0 }')  # cleanup remote-tracking branches
+  # $ git remote prune origin          # cleanup remote-tracking branches
   br-diff-remote = "! remote=${1:-origin} && grep -F -x -v -f <(git ls-remote --heads $remote | awk '{ print substr($2, 12) }' | sort) <(git branch -r --list $remote'/*' --format='%(refname:lstrip=3)' | sort) && true"
 
   # exclude lock files from git diff
