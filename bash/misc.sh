@@ -45,33 +45,52 @@ ho_npm_completion() {
 # simple pnpm command completion for package.json scripts
 ho_setup_pnpm_completion() {
   _ho_pnpm_completion() {
-    # TODO: handle change directory: pnpm -C <directory> <command>
-    if ! [ -f package.json ]; then
-      return
-    fi
-
     # workaround bash's default word breaks for colon ":"
     #   https://github.com/pnpm/tabtab/blob/ab9ea7029e19aae955952ddc10d403d70cbbbcb7/lib/scripts/bash.sh
     #   https://stackoverflow.com/questions/10528695/how-to-reset-comp-wordbreaks-without-affecting-other-completion-script
     local words cword
     if type _get_comp_words_by_ref &>/dev/null; then
-      _get_comp_words_by_ref -n = -n @ -n : -w words -i cword
+      _get_comp_words_by_ref -n : -w words -i cword
     else
       cword="$COMP_CWORD"
       words=("${COMP_WORDS[@]}")
     fi
 
-    if [ "$cword" != "1" ]; then
+    local cur="${words[cword]}"
+    local package_json_path
+    local script_prefix
+
+    if [ "${words[1]}" = "-C" ]; then
+      # handle "pnpm -C ..."
+      if [ "$cword" = "2" ]; then
+        # TODO: fallback to filesystem completion?
+        COMPREPLY=($(compgen -d -S / -- "$cur"))
+        return
+      fi
+
+      # handle "pnpm -C some-dir ..."
+      if [ "$cword" = "3" ]; then
+        package_json_path="${words[2]}/package.json"
+      fi
+    else
+
+      # handle "pnpm ..."
+      if [ "$cword" = "1" ]; then
+        package_json_path="package.json"
+      fi
+    fi
+
+    if ! [ -f "$package_json_path" ]; then
       return
     fi
 
     # shellcheck disable=SC2207
-    COMPREPLY=($(jq -r --arg prefix "${words[cword]}" '.scripts | keys | .[] | select(startswith($prefix))' package.json))
+    COMPREPLY=($(jq -r --arg prefix "$cur" '.scripts | keys | .[] | select(startswith($prefix))' "$package_json_path"))
 
     if type __ltrim_colon_completions &>/dev/null; then
-      __ltrim_colon_completions "${words[cword]}"
+      __ltrim_colon_completions "$cur"
     fi
   }
 
-  complete -o default -F _ho_pnpm_completion pnpm
+  complete -o nospace -o default -F _ho_pnpm_completion pnpm
 }
