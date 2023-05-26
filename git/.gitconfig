@@ -44,7 +44,7 @@
 
   # delete local branch before "git fco"
   # $ git dfco <branch> <remote=origin>
-  dfco = "! branch=${1} remote=${2:-origin} && git br -D $branch && git fco $branch $remote && true"
+  dfco = "! branch=${1} remote=${2:-origin} && { git br -D $branch || true ; } && git fco $branch $remote && true"
 
   # Add remote repo
   # $ git remote-gh hi-ogawa Stockfish
