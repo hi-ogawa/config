@@ -11,7 +11,7 @@
   lga = log --graph --oneline --all
 
   # checkout stack log
-  co-lg = "! for ((i=1; i<10; i++)); do echo -n \"$i: \"; git rev-parse --symbolic-full-name @{-$i} 2>/dev/null; done"
+  co-lg = "! for ((i=1; i<${1:-10}; i++)); do echo -n \"$i: \"; git rev-parse --symbolic-full-name @{-$i} 2>/dev/null; done && true"
   co-co = "! git checkout @{-${1}} && true"
 
   # list remote-tracking branches which don't exist on remote
