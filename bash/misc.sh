@@ -63,7 +63,6 @@ ho_setup_pnpm_completion() {
     if [ "${words[1]}" = "-C" ]; then
       # handle "pnpm -C ..."
       if [ "$cword" = "2" ]; then
-        # TODO: fallback to filesystem completion?
         COMPREPLY=($(compgen -d -S / -- "$cur"))
         return
       fi
