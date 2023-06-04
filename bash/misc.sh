@@ -58,11 +58,11 @@ ho_setup_pnpm_completion() {
 
     local cur="${words[cword]}"
     local package_json_path
-    local script_prefix
 
     if [ "${words[1]}" = "-C" ]; then
       # handle "pnpm -C ..."
       if [ "$cword" = "2" ]; then
+        # shellcheck disable=SC2207
         COMPREPLY=($(compgen -d -S / -- "$cur"))
         return
       fi
