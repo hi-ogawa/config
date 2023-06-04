@@ -20,7 +20,7 @@
   # $ git br-diff-remote
   # $ git br-diff-remote-clean
   br-diff-remote = "! remote=${1:-origin} && grep -F -x -v -f <(git ls-remote --heads $remote | awk '{ print substr($2, 12) }' | sort) <(git branch -r --list $remote'/*' --format='%(refname:lstrip=3)' | sort) && true"
-  br-diff-remote-clean = "! remote=${1:-origin} && git branch -D $(git br-diff-remote $remote) && git remote prune origin && true"
+  br-diff-remote-clean = "! remote=${1:-origin} && (git branch -D $(git br-diff-remote $remote) || true) && git remote prune origin && true"
 
   # exclude lock files from git diff
   # $ git diff -- $(git no-lock)
