@@ -36,11 +36,11 @@
 
   # Fetch and merge fast-forward (thus "safe" pull)
   # $ git sfpl <remote=origin>
-  sfpl = "! remote=${1:-origin} && branch=$(git rev-parse --abbrev-ref HEAD) && git fetch $remote $branch && git merge --ff-only $remote/$branch && true"
+  sfpl = "! remote=${1:-origin} && branch=$(git rev-parse --abbrev-ref HEAD) && git fetch --no-tags $remote $branch && git merge --ff-only $remote/$branch && true"
 
   # Fetch remote and checkout
   # $ git fco <branch> <remote=origin>
-  fco = "! branch=${1} remote=${2:-origin} && git fetch $remote $branch && git co -b $branch $remote/$branch && true"
+  fco = "! branch=${1} remote=${2:-origin} && git fetch --no-tags $remote $branch && git co -b $branch $remote/$branch && true"
 
   # delete local branch before "git fco"
   # $ git dfco <branch> <remote=origin>
@@ -57,7 +57,7 @@
   # Checkout github remote PR
   # $ git ghpr-co <PR-id> <remote=upstream>
   # $ git ghpr-reset <PR-id> <remote=upstream> <branch=master>
-  ghpr-co =    "! name=PR-$1 && remote=${2:-upstream} && git fetch $remote pull/$1/head:PR-$1 && git co PR-$1 && true"
+  ghpr-co =    "! name=PR-$1 && remote=${2:-upstream} && git fetch --no-tags $remote pull/$1/head:PR-$1 && git co PR-$1 && true"
   ghpr-reset = "! name=PR-$1 && remote=${2:-upstream} && branch=${3:-master} && git co $branch && (git br -D $name || true) && git ghpr-co $1 $2 && true"
 
 [init]
