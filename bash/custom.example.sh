@@ -18,8 +18,8 @@ ho_setup_android() {
 
 ho_custom_defaults() {
   ho_setup_pnpm_completion
-  ho_setup_pyenv
-  ho_setup_asdf
+  # ho_setup_pyenv
+  # ho_setup_asdf
   ho_setup_volta
 }
 
