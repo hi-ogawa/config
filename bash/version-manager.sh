@@ -41,7 +41,9 @@ ho_setup_nvm() {
 }
 
 # https://volta.sh/
-# usage with corepack https://github.com/volta-cli/volta/issues/987#issuecomment-914502143
+# usage with corepack (cf. https://github.com/volta-cli/volta/issues/987#issuecomment-914502143)
+#   volta install corepack
+#   corepack enable --install-directory ~/.volta/bin
 ho_setup_volta() {
   export VOLTA_HOME="$HOME/.volta"
   export PATH="$VOLTA_HOME/bin:$PATH"
