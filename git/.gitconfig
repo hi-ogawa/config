@@ -40,14 +40,16 @@
 
   # Fetch remote and checkout
   # $ git fco <branch> <remote=origin>
-  fco = "! branch=${1} remote=${2:-origin} && git fetch --no-tags $remote $branch && git co -b $branch $remote/$branch && true"
+  fco = "! branch=${1} remote=${2:-origin} && git fetch --no-tags $remote $branch && git checkout -t $remote/$branch && true"
 
   # delete local branch before "git fco"
   # $ git dfco <branch> <remote=origin>
   dfco = "! branch=${1} remote=${2:-origin} && { git br -D $branch || true ; } && git fco $branch $remote && true"
 
   # Add remote repo
-  # $ git remote-gh hi-ogawa Stockfish
+  # $ git remote-gh hi-ogawa vitest
+  # $ git fco feat-github-actions-reporter hi-ogawa
+  # $ git sfpl hi-ogawa
   remote-gh = "! remote=${1} repo=${2} && git remote add $remote git@github.com:$remote/$repo.git && true"
 
   # Delete merged branch
