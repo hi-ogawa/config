@@ -67,6 +67,8 @@
 
 [core]
   excludesfile = ~/.gitignore-global
+  # https://stackoverflow.com/a/75492196
+  pager = less --tabs 2
 
 [github]
   user = hi-ogawa
@@ -79,5 +81,6 @@
 
 [diff]
   tool = vscode
+
 [difftool "vscode"]
   cmd = code-insiders --wait --diff $LOCAL $REMOTE
