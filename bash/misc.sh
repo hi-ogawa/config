@@ -93,3 +93,9 @@ ho_setup_pnpm_completion() {
 
   complete -o nospace -o default -F _ho_pnpm_completion pnpm
 }
+
+# https://docs.deno.com/runtime/manual/getting_started/installation
+ho_setup_deno() {
+  export DENO_INSTALL="$HOME/.deno"
+  export PATH="$DENO_INSTALL/bin:$PATH"
+}
