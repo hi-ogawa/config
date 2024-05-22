@@ -99,3 +99,9 @@ ho_setup_deno() {
   export DENO_INSTALL="$HOME/.deno"
   export PATH="$DENO_INSTALL/bin:$PATH"
 }
+
+# https://emscripten.org/docs/getting_started/downloads.html
+# https://aur.archlinux.org/packages/emsdk
+ho_setup_emsdk() {
+  source emsdk_env.sh
+}
