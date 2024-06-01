@@ -77,7 +77,7 @@
   ui = auto
 
 [commit]
-  gpgsign = true
+  # gpgsign = true
 
 [diff]
   tool = vscode
