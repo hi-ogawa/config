@@ -83,4 +83,5 @@
   tool = vscode
 
 [difftool "vscode"]
+  # e.g. git difftool main -- some-path
   cmd = code-insiders --wait --diff $LOCAL $REMOTE
