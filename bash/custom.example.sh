@@ -16,6 +16,12 @@ ho_setup_android() {
   export ANDROID_HOME="$HOME/Android/Sdk"
 }
 
+# setup just completion https://github.com/casey/just#shell-completion-scripts
+# just --completions bash > bash/completions/just.sh
+# ho_bashrc_path=$(readlink -f "${BASH_SOURCE[0]}")
+# ho_bash_dir=$(dirname "$ho_bashrc_path")
+# source "$ho_bash_dir/completions/just.sh"
+
 ho_custom_defaults() {
   ho_setup_pnpm_completion
   # ho_setup_pyenv
