@@ -71,6 +71,16 @@
     "command": "cursorHomeSelect"
   },
 
+  // Claude code new line shortcut
+  {
+    "key": "shift+enter",
+    "when": "terminalFocus",
+    "command": "workbench.action.terminal.sendSequence",
+    "args": {
+      "text": "\\\n"
+    }
+  },
+
   //
   // Assign new keys to overwritten shortcuts
   //
