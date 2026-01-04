@@ -10,6 +10,48 @@
     "command": "workbench.action.previousEditor"
   },
 
+  // Emacs-style navigation (commented out - conflicts with standard shortcuts)
+  // Uncomment to enable home-row navigation, but note:
+  // - Ctrl+F conflicts with find in file
+  // - Ctrl+P conflicts with quick open
+  // - Ctrl+A conflicts with select all
+  // - Ctrl+N conflicts with new window (also in browsers)
+  // {
+  //   "key": "ctrl+f",
+  //   "command": "cursorRight"
+  // },
+  // {
+  //   "key": "ctrl+b",
+  //   "command": "cursorLeft"
+  // },
+  // {
+  //   "key": "ctrl+n",
+  //   "command": "cursorDown"
+  // },
+  // {
+  //   "key": "ctrl+p",
+  //   "command": "cursorUp"
+  // },
+  // {
+  //   "key": "ctrl+e",
+  //   "command": "cursorEnd"
+  // },
+  // {
+  //   "key": "ctrl+a",
+  //   "command": "cursorHome"
+  // },
+
+  // Reassigned shortcuts for overridden defaults (commented out)
+  // Only needed if Emacs navigation above is enabled
+  // {
+  //   "key": "alt+shift+f",
+  //   "command": "actions.find"
+  // },
+  // {
+  //   "key": "alt+shift+p",
+  //   "command": "workbench.action.quickOpen"
+  // },
+
   // Claude code new line shortcut
   {
     "key": "shift+enter",
