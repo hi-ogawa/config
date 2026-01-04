@@ -41,6 +41,32 @@
   //   "command": "cursorHome"
   // },
 
+  // Emacs style navigation + selection (in emacs it was "ctrl+shift+?") (commented out)
+  // {
+  //   "key": "ctrl+alt+f",
+  //   "command": "cursorRightSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+b",
+  //   "command": "cursorLeftSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+n",
+  //   "command": "cursorDownSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+p",
+  //   "command": "cursorUpSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+e",
+  //   "command": "cursorEndSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+a",
+  //   "command": "cursorHomeSelect"
+  // },
+
   // Reassigned shortcuts for overridden defaults (commented out)
   // Only needed if Emacs navigation above is enabled
   // {
