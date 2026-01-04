@@ -1,5 +1,6 @@
 [
-  // Common tab navigation
+  // Direct tab navigation (overrides default Ctrl+Tab quick switcher popup)
+  // Default bindings: Ctrl+PageDown/PageUp also work for direct switching
   {
     "key": "ctrl+tab",
     "command": "workbench.action.nextEditor"
@@ -9,67 +10,73 @@
     "command": "workbench.action.previousEditor"
   },
 
-  // Go back/forward (on linux)
-  {
-    "key": "alt+left",
-    "command": "workbench.action.navigateBack"
-  },
-  {
-    "key": "alt+right",
-    "command": "workbench.action.navigateForward"
-  },
+  // Emacs-style navigation (commented out - conflicts with standard shortcuts)
+  // Uncomment to enable home-row navigation, but note:
+  // - Ctrl+F conflicts with find in file
+  // - Ctrl+P conflicts with quick open
+  // - Ctrl+A conflicts with select all
+  // - Ctrl+N conflicts with new window (also in browsers)
+  // {
+  //   "key": "ctrl+f",
+  //   "command": "cursorRight"
+  // },
+  // {
+  //   "key": "ctrl+b",
+  //   "command": "cursorLeft"
+  // },
+  // {
+  //   "key": "ctrl+n",
+  //   "command": "cursorDown"
+  // },
+  // {
+  //   "key": "ctrl+p",
+  //   "command": "cursorUp"
+  // },
+  // {
+  //   "key": "ctrl+e",
+  //   "command": "cursorEnd"
+  // },
+  // {
+  //   "key": "ctrl+a",
+  //   "command": "cursorHome"
+  // },
 
-  // Emacs navigation
-  {
-    "key": "ctrl+f",
-    "command": "cursorRight"
-  },
-  {
-    "key": "ctrl+b",
-    "command": "cursorLeft"
-  },
-  {
-    "key": "ctrl+n",
-    "command": "cursorDown"
-  },
-  {
-    "key": "ctrl+p",
-    "command": "cursorUp"
-  },
-  {
-    "key": "ctrl+e",
-    "command": "cursorEnd"
-  },
-  {
-    "key": "ctrl+a",
-    "command": "cursorHome"
-  },
+  // Emacs style navigation + selection (in emacs it was "ctrl+shift+?") (commented out)
+  // {
+  //   "key": "ctrl+alt+f",
+  //   "command": "cursorRightSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+b",
+  //   "command": "cursorLeftSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+n",
+  //   "command": "cursorDownSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+p",
+  //   "command": "cursorUpSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+e",
+  //   "command": "cursorEndSelect"
+  // },
+  // {
+  //   "key": "ctrl+alt+a",
+  //   "command": "cursorHomeSelect"
+  // },
 
-  // Emacs navigation + selection (in emacs it was "ctrl+shift+?")
-  {
-    "key": "ctrl+alt+f",
-    "command": "cursorRightSelect"
-  },
-  {
-    "key": "ctrl+alt+b",
-    "command": "cursorLeftSelect"
-  },
-  {
-    "key": "ctrl+alt+n",
-    "command": "cursorDownSelect"
-  },
-  {
-    "key": "ctrl+alt+p",
-    "command": "cursorUpSelect"
-  },
-  {
-    "key": "ctrl+alt+e",
-    "command": "cursorEndSelect"
-  },
-  {
-    "key": "ctrl+alt+a",
-    "command": "cursorHomeSelect"
-  },
+  // Reassigned shortcuts for overridden defaults (commented out)
+  // Only needed if Emacs navigation above is enabled
+  // {
+  //   "key": "alt+shift+f",
+  //   "command": "actions.find"
+  // },
+  // {
+  //   "key": "alt+shift+p",
+  //   "command": "workbench.action.quickOpen"
+  // },
 
   // Claude code new line shortcut
   {
@@ -79,20 +86,5 @@
     "args": {
       "text": "\\\n"
     }
-  },
-
-  //
-  // Assign new keys to overwritten shortcuts
-  //
-
-  // default ctrl+f
-  {
-    "key": "alt+shift+f",
-    "command": "actions.find"
-  },
-  // default ctrl+p
-  {
-    "key": "alt+shift+p",
-    "command": "workbench.action.quickOpen"
   }
 ]
