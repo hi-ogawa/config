@@ -1,5 +1,6 @@
 [
-  // Common tab navigation
+  // Direct tab navigation (overrides default Ctrl+Tab quick switcher popup)
+  // Default bindings: Ctrl+PageDown/PageUp also work for direct switching
   {
     "key": "ctrl+tab",
     "command": "workbench.action.nextEditor"
@@ -7,16 +8,6 @@
   {
     "key": "ctrl+shift+tab",
     "command": "workbench.action.previousEditor"
-  },
-
-  // Go back/forward (on linux)
-  {
-    "key": "alt+left",
-    "command": "workbench.action.navigateBack"
-  },
-  {
-    "key": "alt+right",
-    "command": "workbench.action.navigateForward"
   },
 
   // Claude code new line shortcut
